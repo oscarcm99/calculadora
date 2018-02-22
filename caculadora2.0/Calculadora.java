@@ -5,14 +5,14 @@
  * @version (a version number or a date)
  */
 
-
-
 public class Calculadora
 {
     // instance variables - replace the example below with your own
     private int num1;
     private int num2;
     private int rdo;
+    private double num3;
+    private double resdoub;
     private Operacion op;
 
     /**
@@ -38,6 +38,10 @@ public class Calculadora
         // put your code here
         this.num2=n2;
     }
+    public void ponNum3(double n3)
+    {
+    this.num3=n3;    
+    }
 
     public void opera()
     {
@@ -53,6 +57,9 @@ public class Calculadora
                 break;
             case DIVIDE:
                 rdo=num1/num2;
+                break;
+            case RAICES:
+                resdoub=Math.sqrt(num3);
                 break;
         }
     }
@@ -71,6 +78,9 @@ public class Calculadora
         case "DIVIDE":
             op=op.DIVIDE;
             break;
+        case "RAICES":
+            op=op.RAICES;
+            break;
         }
     }
     public int dameResultado()
@@ -78,12 +88,16 @@ public class Calculadora
         // put your code here
         return rdo;
     }
-    
+    public double resultado()
+    {
+        return resdoub;
+    }
     public void muestraTodosResultados(){
         System.out.println("Num1="+Integer.toString(num1)+" Num2=" + Integer.toString(num2));
         System.out.println("Suma :" + Integer.toString(num1+num2));
         System.out.println("Resta :"+ Integer.toString(num1-num2));
         System.out.println("Multiplica :" + Integer.toString(num1*num2));
         System.out.println("Divide :"+ Integer.toString(num1/num2));
+        System.out.println("Raiz:"+ Double.toString(Math.sqrt(num3));
     }
 }
