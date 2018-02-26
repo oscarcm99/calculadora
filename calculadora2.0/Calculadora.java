@@ -75,6 +75,11 @@ public class Calculadora
             case POTENCIAS:
                 rdo = (int)Math.pow(base,exp);
                 break;
+            case FACTORIALES:
+                long factorial=1;
+                for(int i = num1; i> 0; i--){
+                factorial = factorial *i;
+                }
         }
     }
     public void ponOperacion(String opera){
@@ -98,6 +103,9 @@ public class Calculadora
             case "POTENCIAS":
                 op=op.POTENCIAS;
                 break;
+            case "FACTORIALES":
+                op=op.FACTORIALES;
+                break;
         }
     }
     public int dameResultado()
@@ -118,6 +126,7 @@ public class Calculadora
         System.out.println("Divide :"+ Integer.toString(num1/num2));
         System.out.println("Raiz:"+ Integer.toString(radicando,1/indice));
         System.out.println("Potencia:" +Integer.toString(base,exp));
+        System.out.println("Factorial:" +Integer.toString(num1));
     }
 }
 
