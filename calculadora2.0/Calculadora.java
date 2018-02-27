@@ -1,8 +1,8 @@
 /**
- * Write a description of class Calculadora here.
+ * Calculadora de 2 numeros que suma, resta, multiplica, divide, hace raices, logaritmos, factoriales y potencias.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author (Sergio Sanz, Oscar Calderon) 
+ * @version (calculadora 2.0)
  */
 
 public class Calculadora
@@ -12,8 +12,8 @@ public class Calculadora
     private int num2;
     private int rdo;
     private int indice,radicando,base,exp;
-    private float resultado;
-    private Operacion op;
+    private float resultado;//Resultado para la raiz
+    private Operacion op; //Asociamos un numero al enum creado en otra clase
 
     /**
      * Constructor for objects of class Calculadora
@@ -40,10 +40,12 @@ public class Calculadora
     }
     public void PonRadicando(int radicando)
     {
+        //Le asociamos el nombre de esta variable para que se reconozca que es un elemento de una raiz
         this.radicando=radicando; 
     }
     public void PonIndice(int indice)
     {
+        //Le asociamos el nombre de esta variable para que se reconozca que es un elemento de una raiz
         this.indice=indice; 
     }
     public void PonBase(int base)
@@ -70,7 +72,7 @@ public class Calculadora
                 rdo=num1/num2;
                 break;
             case RAICES:
-                resultado = (float)Math.pow(radicando, 1/indice);
+                resultado = (float)Math.pow(radicando, 1/indice); /*Asocia el resultado de la raiz al meter los numeros, un float que es el resultado que devuelve*/
                 break;
             case POTENCIAS:
                 rdo = (int)Math.pow(base,exp);
@@ -115,7 +117,7 @@ public class Calculadora
     }
     public float resultadoReal()
     {
-       //devuelve un resultado de tipo float
+       //devuelve un resultado de tipo float(raiz)
         return resultado;   
     }
     public void muestraTodosResultados(){

@@ -1,6 +1,6 @@
 
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.*;//Librerias de la clase de prueba
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -8,8 +8,8 @@ import org.junit.Test;
 /**
  * The test class CalculadoraTest.
  *
- * @author  (your name)
- * @version (a version number or a date)
+ * @author  (Sergio Sanz, Oscar Calderon)
+ * @version (calculadora 2.0)
  */
 public class CalculadoraTest
 {
