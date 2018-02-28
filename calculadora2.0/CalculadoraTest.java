@@ -4,7 +4,7 @@ import static org.junit.Assert.*;//Librerias de la clase de prueba
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-
+Calculadora calculadora
 /**
  * The test class CalculadoraTest.
  *
@@ -16,8 +16,11 @@ public class CalculadoraTest
     /**
      * Default constructor for test class CalculadoraTest
      */
+
+
     public CalculadoraTest()
     {
+
     }
 
     /**
@@ -28,6 +31,7 @@ public class CalculadoraTest
     @Before
     public void setUp()
     {
+        calculadora = new Calculadora();
     }
 
     /**
@@ -38,5 +42,28 @@ public class CalculadoraTest
     @After
     public void tearDown()
     {
+        System.out.println("Las pruebas se han acabado.");
+    }
+    @Test
+    public void suma(){
+        calculadora.ponNum1(1);
+        calculadora.ponNum2(4);
+        calculadora.ponOperacion("SUMA");
+        calculadora.opera();
+        Assert.assertEquials(5, calculadora.dameResultado());
+    }
+    public void resta(){
+    }
+    public void multiplicacion(){
+    }
+    public void division(){
+    }
+    public void raices(){
+    }
+    public void potencias(){
+    }
+    public void factoriales(){
+    }
+    public void logaritmos(){
     }
 }
