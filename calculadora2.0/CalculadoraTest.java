@@ -42,32 +42,61 @@ public class CalculadoraTest
     @After
     public void tearDown()
     {
-        System.out.println("Las pruebas se han acabado.");
     }
     @Test
     public void suma(){
+        //Caso 1 suma
         calculadora.ponNum1(1);
         calculadora.ponNum2(4);
         calculadora.ponOperacion("SUMA");
         calculadora.opera();
         assertEquals(5, calculadora.dameResultado());
+        //Caso 2 suma
         calculadora.ponNum1(-1);
         calculadora.ponNum2(-2);
         calculadora.ponOperacion("SUMA");
         calculadora.opera();
         assertEquals(-3, calculadora.dameResultado());
+        //Caso 3 suma
         calculadora.ponNum1(5);
         calculadora.ponNum2(0);
         calculadora.ponOperacion("SUMA");
         calculadora.opera();
         assertEquals(5, calculadora.dameResultado());
+        //Caso 4 suma
+        calculadora.ponNum1(5);
+        calculadora.ponNum2(0);
+        calculadora.ponOperacion("SUMA");
+        calculadora.opera();
+        assertEquals(5, calculadora.dameResultado());
+        
     }
+    @Test
     public void resta(){
+        //Caso 1 resta
         calculadora.ponNum1(2);
         calculadora.ponNum2(4);
         calculadora.ponOperacion("RESTA");
         calculadora.opera();
-        assertEquals(-3, calculadora.dameResultado());
+        assertEquals(-2, calculadora.dameResultado());
+        //Caso 2 resta
+        calculadora.ponNum1(4);
+        calculadora.ponNum2(2);
+        calculadora.ponOperacion("RESTA");
+        calculadora.opera();
+        assertEquals(2, calculadora.dameResultado());
+        //Caso 3 resta
+        calculadora.ponNum1(4);
+        calculadora.ponNum2(0);
+        calculadora.ponOperacion("RESTA");
+        calculadora.opera();
+        assertEquals(4, calculadora.dameResultado());
+        //Caso 4 resta
+        calculadora.ponNum1(0);
+        calculadora.ponNum2(4);
+        calculadora.ponOperacion("RESTA");
+        calculadora.opera();
+        assertEquals(-4, calculadora.dameResultado());
     }
     /*public void multiplicacion(){
     }
