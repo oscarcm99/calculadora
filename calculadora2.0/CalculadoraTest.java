@@ -53,6 +53,11 @@ public class CalculadoraTest
         Assert.assertEquials(5, calculadora.dameResultado());
     }
     public void resta(){
+       calculadora.ponNum1(1);
+        calculadora.ponNum2(4);
+        calculadora.ponOperacion("RESTA");
+        calculadora.opera();
+        Assert.assertEquials(-3, calculadora.dameResultado());
     }
     public void multiplicacion(){
     }
