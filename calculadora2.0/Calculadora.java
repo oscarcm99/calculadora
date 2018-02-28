@@ -88,7 +88,7 @@ public class Calculadora
         switch(opera){
 
             case "SUMA":
-                op=op.SU MA;
+                op=op.SUMA;
                 break;
             case "RESTA":
                 op=op.RESTA;
