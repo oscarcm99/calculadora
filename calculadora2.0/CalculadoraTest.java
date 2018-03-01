@@ -98,10 +98,62 @@ public class CalculadoraTest
         calculadora.opera();
         assertEquals(-4, calculadora.dameResultado());
     }
-    /*public void multiplicacion(){
+    @Test
+    public void multiplicacion(){
+        //Caso 1 multiplicacion
+        calculadora.ponNum1(3);
+        calculadora.ponNum2(5);
+        calculadora.ponOperacion("MULTIPLICA");
+        calculadora.opera();
+        assertEquals(15, calculadora.dameResultado());
+        //Caso 2 multiplicacion
+        calculadora.ponNum1(5);
+        calculadora.ponNum2(3);
+        calculadora.ponOperacion("MULTIPLICA");
+        calculadora.opera();
+        assertEquals(15, calculadora.dameResultado());
+        //Caso 3 multiplicacion
+        calculadora.ponNum1(0);
+        calculadora.ponNum2(5);
+        calculadora.ponOperacion("MULTIPLICA");
+        calculadora.opera();
+        assertEquals(0, calculadora.dameResultado());
+        //Caso 4 multiplicacion
+        calculadora.ponNum1(5);
+        calculadora.ponNum2(0);
+        calculadora.ponOperacion("MULTIPLICA");
+        calculadora.opera();
+        assertEquals(0, calculadora.dameResultado());
     }
+    @Test
     public void division(){
+        //Caso 1 division
+        calculadora.ponNum1(4);
+        calculadora.ponNum2(2);
+        calculadora.ponOperacion("DIVIDE");
+        calculadora.opera();
+        assertEquals(2, calculadora.resultadoReal(),0);
+        //Caso 2 division
+        calculadora.ponNum1(2);
+        calculadora.ponNum2(4);
+        calculadora.ponOperacion("DIVIDE");
+        calculadora.opera();
+        assertEquals(0.5, calculadora.resultadoReal(),0);
+        //Caso 3 division
+        calculadora.ponNum1(0);
+        calculadora.ponNum2(5);
+        calculadora.ponOperacion("DIVIDE");
+        calculadora.opera();
+        assertEquals(0, calculadora.resultadoReal(),0);
+        //Caso 4 division
+        calculadora.ponNum1(5);
+        calculadora.ponNum2(0);
+        calculadora.ponOperacion("DIVIDE");
+        calculadora.opera();
+        assertEquals(0, calculadora.resultadoReal(),0);
+        
     }
+    /*
     public void raices(){
     }
     public void potencias(){

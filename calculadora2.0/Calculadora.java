@@ -12,7 +12,7 @@ public class Calculadora
     private int num2;
     private int rdo;
     private int indice,radicando,base,exp;
-    private float resultado;//Resultado para la raiz
+    private double resultado;//Resultado para la raiz
     private Operacion op; //Asociamos un numero al enum creado en otra clase
 
     /**
@@ -69,16 +69,16 @@ public class Calculadora
                 rdo=num1*num2;
                 break;
             case DIVIDE:
-                rdo=num1/num2;
+                resultado=(double)num1/num2;
                 break;
             case RAICES:
-                resultado = (float)Math.pow(radicando, 1/indice); /*Asocia el resultado de la raiz al meter los numeros, un float que es el resultado que devuelve*/
+                resultado = (double)Math.pow(radicando, 1/indice); /*Asocia el resultado de la raiz al meter los numeros, un float que es el resultado que devuelve*/
                 break;
             case POTENCIAS:
                 rdo = (int)Math.pow(base,exp);
                 break;
             case LOGARITMOS:
-                resultado=(float)Math.log10(num1);
+                resultado=(double)Math.log10(num1);
                 break;
             case FACTORIALES:
                 long factorial=1;
@@ -121,7 +121,7 @@ public class Calculadora
         // devuelve un resultado de tipo entero
         return rdo;
     }
-    public float resultadoReal()
+    public double resultadoReal()
     {
         //devuelve un resultado de tipo float(raiz,logaritmos)
         return resultado;
