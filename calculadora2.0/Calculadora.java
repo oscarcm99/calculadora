@@ -1,7 +1,7 @@
 /**
  * Calculadora de 2 numeros que suma, resta, multiplica, divide, hace raices, logaritmos, factoriales y potencias.
- * 
- * @author (Sergio Sanz, Oscar Calderon) 
+ *
+ * @author (Sergio Sanz, Oscar Calderon)
  * @version (calculadora 2.0)
  */
 
@@ -41,12 +41,12 @@ public class Calculadora
     public void PonRadicando(int radicando)
     {
         //Le asociamos el nombre de esta variable para que se reconozca que es un elemento de una raiz
-        this.radicando=radicando; 
+        this.radicando=radicando;
     }
     public void PonIndice(int indice)
     {
         //Le asociamos el nombre de esta variable para que se reconozca que es un elemento de una raiz
-        this.indice=indice; 
+        this.indice=indice;
     }
     public void PonBase(int base)
     {
@@ -77,10 +77,13 @@ public class Calculadora
             case POTENCIAS:
                 rdo = (int)Math.pow(base,exp);
                 break;
+            case LOGARITMOS:
+                resultado=(float)Math.log10(num1);
+                break;
             case FACTORIALES:
                 long factorial=1;
                 for(int i = num1; i> 0; i--){
-                factorial = factorial *i;
+                    factorial = factorial *i;
                 }
         }
     }
@@ -105,6 +108,9 @@ public class Calculadora
             case "POTENCIAS":
                 op=op.POTENCIAS;
                 break;
+            case "LOGARITMOS":
+                op=op.LOGARITMOS;
+                break;
             case "FACTORIALES":
                 op=op.FACTORIALES;
                 break;
@@ -117,8 +123,8 @@ public class Calculadora
     }
     public float resultadoReal()
     {
-       //devuelve un resultado de tipo float(raiz)
-        return resultado;   
+        //devuelve un resultado de tipo float(raiz,logaritmos)
+        return resultado;
     }
     public void muestraTodosResultados(){
         System.out.println("Num1="+Integer.toString(num1)+" Num2=" + Integer.toString(num2));
@@ -128,7 +134,9 @@ public class Calculadora
         System.out.println("Divide :"+ Integer.toString(num1/num2));
         System.out.println("Raiz:"+ Integer.toString(radicando,1/indice));
         System.out.println("Potencia:" +Integer.toString(base,exp));
+        System.out.println("Logaritmo : " +Double.toString(Math.log10(num1)));
         System.out.println("Factorial:" +Integer.toString(num1));
+
     }
 }
 
