@@ -8,12 +8,14 @@
 public class Calculadora
 {
     // instance variables - replace the example below with your own
-    private int num1;
-    private int num2;
-    private int rdo;
-    private int indice,radicando,base,exp;
+    private double num1;
+    private double num2;
+    private int indice,radicando;//Para las raices
+    private int base,exp;//Para las potencias
+    private int factorial;//Para los factoriales
     private double resultado;//Resultado para la raiz
-    private Operacion op; //Asociamos un numero al enum creado en otra clase
+    private int rdo;//Resultado factoriales
+    private Operacion op; //Asociamos el enum creado en otra clase
 
     /**
      * Constructor for objects of class Calculadora
@@ -27,13 +29,13 @@ public class Calculadora
 
     }
 
-    public void ponNum1(int n1)
+    public void ponNum1(double n1)
     {
         // put your code here
         this.num1=n1;
     }
 
-    public void ponNum2(int n2)
+    public void ponNum2(double n2)
     {
         // put your code here
         this.num2=n2;
@@ -56,35 +58,39 @@ public class Calculadora
     {
         this.exp=exp;
     }
+    public void PonFactorial(int factorial){
+        //Factorial
+        this.factorial=factorial;
+    }
     public void opera()
     {
         switch(op){
             case SUMA:
-                rdo=num1+num2;
+                resultado=num1+num2;
                 break;
             case RESTA:
-                rdo=num1-num2;
+                resultado=num1-num2;
                 break;
             case MULTIPLICA:
-                rdo=num1*num2;
+                resultado=num1*num2;
                 break;
             case DIVIDE:
-                resultado=(double)num1/num2;
+                resultado= num1/num2;
                 break;
             case RAICES:
-                resultado = (double)Math.pow(radicando, 1/indice); /*Asocia el resultado de la raiz al meter los numeros, un float que es el resultado que devuelve*/
+                resultado = (double)Math.pow(num1, 1/num2); /*Asocia el resultado de la raiz al meter los numeros, un float que es el resultado que devuelve*/
                 break;
             case POTENCIAS:
-                rdo = (int)Math.pow(base,exp);
+                resultado = (double)Math.pow(base,exp);
                 break;
             case LOGARITMOS:
-                resultado=(double)Math.log10(num1);
+                resultado=Math.log10(num1);
                 break;
             case FACTORIALES:
-                long factorial=1;
-                for(int i = num1; i> 0; i--){
-                    factorial = factorial *i;
-                }
+                long fac = 1;
+                for(int i = factorial; i>0; i++)
+                fac = fac * i;
+                break;
         }
     }
     public void ponOperacion(String opera){
@@ -116,27 +122,24 @@ public class Calculadora
                 break;
         }
     }
-    public int dameResultado()
-    {
-        // devuelve un resultado de tipo entero
-        return rdo;
-    }
     public double resultadoReal()
     {
         //devuelve un resultado de tipo float(raiz,logaritmos)
         return resultado;
     }
+    public int resultado(){
+        return rdo;
+    }
     public void muestraTodosResultados(){
-        System.out.println("Num1="+Integer.toString(num1)+" Num2=" + Integer.toString(num2));
-        System.out.println("Suma :" + Integer.toString(num1+num2));
-        System.out.println("Resta :"+ Integer.toString(num1-num2));
-        System.out.println("Multiplica :" + Integer.toString(num1*num2));
-        System.out.println("Divide :"+ Integer.toString(num1/num2));
-        System.out.println("Raiz:"+ Integer.toString(radicando,1/indice));
+        System.out.println("Num1="+Double.toString(num1)+" Num2=" + Double.toString(num2));
+        System.out.println("Suma :" + Double.toString(num1+num2));
+        System.out.println("Resta :"+ Double.toString(num1-num2));
+        System.out.println("Multiplica :" + Double.toString(num1*num2));
+        System.out.println("Divide :"+ Double.toString(num1/num2));
+        System.out.println("Raiz:"+Integer.toString(radicando,1/indice));
         System.out.println("Potencia:" +Integer.toString(base,exp));
         System.out.println("Logaritmo : " +Double.toString(Math.log10(num1)));
-        System.out.println("Factorial:" +Integer.toString(num1));
-
+        System.out.println("Factorial:" +Integer.toString(factorial));
     }
 }
 

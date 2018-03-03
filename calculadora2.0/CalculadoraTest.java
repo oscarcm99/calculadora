@@ -29,7 +29,7 @@ public class CalculadoraTest
      * Called before every test case method.
      */
     @Before
-    public void setUp()
+    public void setUp() throws Exception
     {
         calculadora = new Calculadora();
     }
@@ -40,7 +40,7 @@ public class CalculadoraTest
      * Called after every test case method.
      */
     @After
-    public void tearDown()
+    public void tearDown() throws Exception
     {
     }
     @Test
@@ -50,80 +50,79 @@ public class CalculadoraTest
         calculadora.ponNum2(4);
         calculadora.ponOperacion("SUMA");
         calculadora.opera();
-        assertEquals(5, calculadora.dameResultado());
+        assertEquals(5, calculadora.resultadoReal(),0.1);
         //Caso 2 suma
         calculadora.ponNum1(-1);
         calculadora.ponNum2(-2);
         calculadora.ponOperacion("SUMA");
         calculadora.opera();
-        assertEquals(-3, calculadora.dameResultado());
+        assertEquals(-3, calculadora.resultadoReal(),0.1);
         //Caso 3 suma
-        calculadora.ponNum1(5);
+        calculadora.ponNum1(5.5);
         calculadora.ponNum2(0);
         calculadora.ponOperacion("SUMA");
         calculadora.opera();
-        assertEquals(5, calculadora.dameResultado());
+        assertEquals(5.5, calculadora.resultadoReal(),0.1);
         //Caso 4 suma
-        calculadora.ponNum1(5);
-        calculadora.ponNum2(0);
+        calculadora.ponNum1(0);
+        calculadora.ponNum2(1.3);
         calculadora.ponOperacion("SUMA");
         calculadora.opera();
-        assertEquals(5, calculadora.dameResultado());
-        
+        assertEquals(1.3, calculadora.resultadoReal(),0.1);
     }
     @Test
     public void resta(){
         //Caso 1 resta
-        calculadora.ponNum1(2);
+        calculadora.ponNum1(2.2);
         calculadora.ponNum2(4);
         calculadora.ponOperacion("RESTA");
         calculadora.opera();
-        assertEquals(-2, calculadora.dameResultado());
+        assertEquals(-1.8, calculadora.resultadoReal(),0.1);
         //Caso 2 resta
         calculadora.ponNum1(4);
-        calculadora.ponNum2(2);
+        calculadora.ponNum2(2.2);
         calculadora.ponOperacion("RESTA");
         calculadora.opera();
-        assertEquals(2, calculadora.dameResultado());
+        assertEquals(1.8, calculadora.resultadoReal(),0.1);
         //Caso 3 resta
         calculadora.ponNum1(4);
         calculadora.ponNum2(0);
         calculadora.ponOperacion("RESTA");
         calculadora.opera();
-        assertEquals(4, calculadora.dameResultado());
+        assertEquals(4, calculadora.resultadoReal(),0.1);
         //Caso 4 resta
         calculadora.ponNum1(0);
         calculadora.ponNum2(4);
         calculadora.ponOperacion("RESTA");
         calculadora.opera();
-        assertEquals(-4, calculadora.dameResultado());
+        assertEquals(-4, calculadora.resultadoReal(),0.1);
     }
     @Test
     public void multiplicacion(){
         //Caso 1 multiplicacion
-        calculadora.ponNum1(3);
+        calculadora.ponNum1(3.1);
         calculadora.ponNum2(5);
         calculadora.ponOperacion("MULTIPLICA");
         calculadora.opera();
-        assertEquals(15, calculadora.dameResultado());
+        assertEquals(15.5, calculadora.resultadoReal(),0.1);
         //Caso 2 multiplicacion
         calculadora.ponNum1(5);
-        calculadora.ponNum2(3);
+        calculadora.ponNum2(3.1);
         calculadora.ponOperacion("MULTIPLICA");
         calculadora.opera();
-        assertEquals(15, calculadora.dameResultado());
+        assertEquals(15.5, calculadora.resultadoReal(),0.1);
         //Caso 3 multiplicacion
         calculadora.ponNum1(0);
         calculadora.ponNum2(5);
         calculadora.ponOperacion("MULTIPLICA");
         calculadora.opera();
-        assertEquals(0, calculadora.dameResultado());
+        assertEquals(0, calculadora.resultadoReal(),0.1);
         //Caso 4 multiplicacion
         calculadora.ponNum1(5);
         calculadora.ponNum2(0);
         calculadora.ponOperacion("MULTIPLICA");
         calculadora.opera();
-        assertEquals(0, calculadora.dameResultado());
+        assertEquals(0, calculadora.resultadoReal(),0.1);
     }
     @Test
     public void division(){
@@ -132,34 +131,61 @@ public class CalculadoraTest
         calculadora.ponNum2(2);
         calculadora.ponOperacion("DIVIDE");
         calculadora.opera();
-        assertEquals(2, calculadora.resultadoReal(),0);
+        assertEquals(2, calculadora.resultadoReal(),0.1);
         //Caso 2 division
         calculadora.ponNum1(2);
         calculadora.ponNum2(4);
         calculadora.ponOperacion("DIVIDE");
         calculadora.opera();
-        assertEquals(0.5, calculadora.resultadoReal(),0);
+        assertEquals(0.5, calculadora.resultadoReal(),0.1);
         //Caso 3 division
         calculadora.ponNum1(0);
         calculadora.ponNum2(5);
         calculadora.ponOperacion("DIVIDE");
         calculadora.opera();
-        assertEquals(0, calculadora.resultadoReal(),0);
+        assertEquals(0, calculadora.resultadoReal(),0.1);
         //Caso 4 division
         calculadora.ponNum1(5);
         calculadora.ponNum2(0);
         calculadora.ponOperacion("DIVIDE");
         calculadora.opera();
-        assertEquals(0, calculadora.resultadoReal(),0);
+        assertNotEquals(0, calculadora.resultadoReal(),0.1);
         
     }
-    /*
+    @Test
     public void raices(){
+        //Caso 1 raices
+        calculadora.PonRadicando(9);
+        calculadora.PonIndice(2);
+        calculadora.ponOperacion("RAICES");
+        calculadora.opera();
+        assertEquals(3.0,calculadora.resultado(),0.1);
+        
+        //Caso 2 raices
+        calculadora.PonRadicando(-32);
+        calculadora.PonIndice(5);
+        calculadora.ponOperacion("RAICES");
+        calculadora.opera();
+        assertEquals(-2.0,calculadora.resultadoReal(),0.1);
+        
     }
+    @Test
     public void potencias(){
+        //Caso 1 potencias
+        calculadora.PonBase(2);
+        calculadora.PonExponente(2);
+        calculadora.ponOperacion("POTENCIAS");
+        calculadora.opera();
+        assertEquals(4.0,calculadora.resultadoReal(),0.1);
     }
+    @Test
     public void factoriales(){
+        //Caso 1 factoriales
+        calculadora.PonFactorial(5);
+        calculadora.ponOperacion("FACTORIALES");
+        calculadora.opera();
+        assertEquals(120,calculadora.resultado());
     }
-    public void logaritmos(){
+    /*public void logaritmos(){
     }*/
 }
