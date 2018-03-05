@@ -69,6 +69,19 @@ public class CalculadoraTest
         calculadora.ponOperacion("SUMA");
         calculadora.opera();
         assertEquals(1.3, calculadora.resultadoReal(),0.1);
+        //Caso 5 suma
+        calculadora.ponNum1(Double.MAX_VALUE);
+        calculadora.ponNum2(Double.MAX_VALUE);
+        calculadora.ponOperacion("SUMA");
+        calculadora.opera();
+        assertEquals(Double.POSITIVE_INFINITY, calculadora.resultadoReal(),0.1);
+        //Caso 6 suma
+        calculadora.ponNum1(-Double.MAX_VALUE);
+        calculadora.ponNum2(-Double.MAX_VALUE);
+        calculadora.ponOperacion("SUMA");
+        calculadora.opera();
+        assertEquals(Double.NEGATIVE_INFINITY, calculadora.resultadoReal(),0.1);
+
     }
     @Test
     public void resta(){
@@ -96,6 +109,18 @@ public class CalculadoraTest
         calculadora.ponOperacion("RESTA");
         calculadora.opera();
         assertEquals(-4, calculadora.resultadoReal(),0.1);
+        //Caso 5 resta
+        calculadora.ponNum1(Double.MAX_VALUE);
+        calculadora.ponNum2(-Double.MAX_VALUE);
+        calculadora.ponOperacion("RESTA");
+        calculadora.opera();
+        assertEquals(Double.POSITIVE_INFINITY, calculadora.resultadoReal(),0.1);
+       //Caso 6 resta
+        calculadora.ponNum1(-Double.MAX_VALUE);
+        calculadora.ponNum2(Double.MAX_VALUE);
+        calculadora.ponOperacion("RESTA");
+        calculadora.opera();
+        assertEquals(Double.NEGATIVE_INFINITY, calculadora.resultadoReal(),0.1);
     }
     @Test
     public void multiplicacion(){
