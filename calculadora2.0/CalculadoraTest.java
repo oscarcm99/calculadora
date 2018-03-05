@@ -207,6 +207,12 @@ public class CalculadoraTest
         calculadora.ponOperacion("POTENCIAS");
         calculadora.opera();
         assertEquals(4.0,calculadora.resultadoReal(),0.1);
+        //Caso 2 potencias
+        calculadora.ponNum1(2);
+        calculadora.ponNum2(0);
+        calculadora.ponOperacion("POTENCIAS");
+        calculadora.opera();
+        assertEquals(1.0,calculadora.resultadoReal(),0.1);
     }
     @Test
     public void logaritmos(){
