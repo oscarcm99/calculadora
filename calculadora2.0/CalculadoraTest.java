@@ -174,34 +174,47 @@ public class CalculadoraTest
         calculadora.ponNum2(0);
         calculadora.ponOperacion("DIVIDE");
         calculadora.opera();
-        assertNotEquals(0, calculadora.resultadoReal(),0.1);
-        
+        assertEquals(Double.POSITIVE_INFINITY, calculadora.resultadoReal(),0.1);
+       //Caso 5 division
+        calculadora.ponNum1(0);
+        calculadora.ponNum2(Double.MAX_VALUE);
+        calculadora.ponOperacion("DIVIDE");
+        calculadora.opera();
+        assertEquals(0, calculadora.resultadoReal(),0.1);
     }
     @Test
     public void raices(){
         //Caso 1 raices
-        calculadora.PonRadicando(9);
-        calculadora.PonIndice(2);
+        calculadora.ponNum1(9);
+        calculadora.ponNum2(2);
         calculadora.ponOperacion("RAICES");
         calculadora.opera();
-        assertEquals(3.0,calculadora.resultado(),0.1);
+        assertEquals(3.0,calculadora.resultadoReal(),0.1);
         
         //Caso 2 raices
-        calculadora.PonRadicando(-32);
-        calculadora.PonIndice(5);
+        calculadora.ponNum1(-8);
+        calculadora.ponNum2(3);
         calculadora.ponOperacion("RAICES");
         calculadora.opera();
-        assertEquals(-2.0,calculadora.resultadoReal(),0.1);
+        assertEquals(Double.NaN,calculadora.resultadoReal(),0.1);
         
     }
     @Test
     public void potencias(){
         //Caso 1 potencias
-        calculadora.PonBase(2);
-        calculadora.PonExponente(2);
+        calculadora.ponNum1(2);
+        calculadora.ponNum2(2);
         calculadora.ponOperacion("POTENCIAS");
         calculadora.opera();
         assertEquals(4.0,calculadora.resultadoReal(),0.1);
+    }
+    @Test
+    public void logaritmos(){
+        //Caso 1 logaritmos
+        calculadora.ponNum1(10);
+        calculadora.ponOperacion("LOGARITMOS");
+        calculadora.opera();
+        assertEquals(1.0,calculadora.resultadoReal(),0.1);
     }
     @Test
     public void factoriales(){
@@ -211,6 +224,4 @@ public class CalculadoraTest
         calculadora.opera();
         assertEquals(120,calculadora.resultado());
     }
-    /*public void logaritmos(){
-    }*/
 }
