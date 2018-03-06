@@ -214,6 +214,13 @@ public class CalculadoraTest
         calculadora.ponOperacion("RAICES");
         calculadora.opera();
         assertEquals(Double.NaN,calculadora.resultadoReal(),0.1);
+        //caso3 raices
+        calculadora.ponNum1(5);
+        calculadora.ponNum2(-3);
+        calculadora.ponOperacion("RAICES");
+        calculadora.opera();
+        assertEquals(0.5848035476425733,calculadora.resultadoReal(),0.1);
+        
         
     }
     @Test
