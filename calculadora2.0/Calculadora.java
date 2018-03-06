@@ -68,10 +68,13 @@ public class Calculadora
                 resultado=Math.log10(num1);
                 break;
             case FACTORIALES:
-               long fac = 1;
-                for(int i = factorial; i>0; i++)
-                fac = fac * i;
-               break;
+                int a =1;  
+                while ( factorial!=0) {
+                    a=a*factorial;
+                    factorial--;
+                }
+                rdo=a;
+                break;
         }
     }
     public void ponOperacion(String opera){

@@ -81,7 +81,6 @@ public class CalculadoraTest
         calculadora.ponOperacion("SUMA");
         calculadora.opera();
         assertEquals(Double.NEGATIVE_INFINITY, calculadora.resultadoReal(),0.1);
-
     }
     @Test
     public void resta(){
@@ -148,6 +147,18 @@ public class CalculadoraTest
         calculadora.ponOperacion("MULTIPLICA");
         calculadora.opera();
         assertEquals(0, calculadora.resultadoReal(),0.1);
+        //Caso 5 multiplicacion
+        calculadora.ponNum1(Double.MAX_VALUE);
+        calculadora.ponNum2(Double.MAX_VALUE);
+        calculadora.ponOperacion("MULTIPLICA");
+        calculadora.opera();
+        assertEquals(Double.POSITIVE_INFINITY, calculadora.resultadoReal(),0.1);
+        //Caso 6 multiplicacion
+        calculadora.ponNum1(-Double.MAX_VALUE);
+        calculadora.ponNum2(Double.MAX_VALUE);
+        calculadora.ponOperacion("MULTIPLICA");
+        calculadora.opera();
+        assertEquals(Double.NEGATIVE_INFINITY, calculadora.resultadoReal(),0.1);
     }
     @Test
     public void division(){
@@ -181,6 +192,12 @@ public class CalculadoraTest
         calculadora.ponOperacion("DIVIDE");
         calculadora.opera();
         assertEquals(0, calculadora.resultadoReal(),0.1);
+       //Caso 6 division
+        calculadora.ponNum1(Double.MAX_VALUE);
+        calculadora.ponNum2(Double.MAX_VALUE);
+        calculadora.ponOperacion("DIVIDE");
+        calculadora.opera();
+        assertEquals(1.0, calculadora.resultadoReal(),0.1);
     }
     @Test
     public void raices(){
@@ -225,9 +242,9 @@ public class CalculadoraTest
     @Test
     public void factoriales(){
         //Caso 1 factoriales
-        calculadora.PonFactorial(5);
+        calculadora.PonFactorial(4);
         calculadora.ponOperacion("FACTORIALES");
         calculadora.opera();
-        assertEquals(120,calculadora.resultado());
+        assertEquals(24,calculadora.resultado());
     }
 }
