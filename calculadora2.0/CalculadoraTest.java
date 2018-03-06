@@ -237,6 +237,12 @@ public class CalculadoraTest
         calculadora.ponOperacion("POTENCIAS");
         calculadora.opera();
         assertEquals(1.0,calculadora.resultadoReal(),0.1);
+     //Caso 3 potencias
+        calculadora.ponNum1(0);
+        calculadora.ponNum2(2);
+        calculadora.ponOperacion("POTENCIAS");
+        calculadora.opera();
+        assertEquals(0,calculadora.resultadoReal(),0.1);
     }
     @Test
     public void logaritmos(){
