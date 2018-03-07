@@ -209,18 +209,19 @@ public class CalculadoraTest
         assertEquals(3.0,calculadora.resultadoReal(),0.1);
         
         //Caso 2 raices
-        calculadora.ponNum1(-8);
-        calculadora.ponNum2(3);
+        calculadora.ponNum1(-32);
+        calculadora.ponNum2(5);
         calculadora.ponOperacion("RAICES");
         calculadora.opera();
         assertEquals(Double.NaN,calculadora.resultadoReal(),0.1);
+        /*
         //caso3 raices
         calculadora.ponNum1(5);
-        calculadora.ponNum2(-3);
+        calculadora.PonIndice(3);
         calculadora.ponOperacion("RAICES");
         calculadora.opera();
-        assertEquals(0.5848035476425733,calculadora.resultadoReal(),0.1);
-        
+        assertEquals(1.0,calculadora.resultadoReal(),0.1);
+        */
         
     }
     @Test
@@ -259,5 +260,15 @@ public class CalculadoraTest
         calculadora.ponOperacion("FACTORIALES");
         calculadora.opera();
         assertEquals(24,calculadora.resultado());
+        //Caso 2 factoriales
+        calculadora.PonFactorial(0);
+        calculadora.ponOperacion("FACTORIALES");
+        calculadora.opera();
+        assertEquals(1,calculadora.resultado());
+        //Caso 3 factoriales
+        calculadora.PonFactorial(Integer.MAX_VALUE);
+        calculadora.ponOperacion("FACTORIALES");
+        calculadora.opera();
+        assertEquals(0,calculadora.resultado());
     }
 }

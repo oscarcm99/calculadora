@@ -14,7 +14,7 @@ public class Calculadora
     private double resultado;//Resultado para la raiz
     private int rdo;//Resultado factoriales
     private Operacion op; //Asociamos el enum creado en otra clase
-
+    private int indice;
     /**
      * Constructor for objects of class Calculadora
      */
@@ -24,6 +24,7 @@ public class Calculadora
         num1 = 0;
         num2 = 0;
         factorial = 0;
+        indice = 0;
         op=op.SUMA;
 
     }
@@ -42,6 +43,10 @@ public class Calculadora
     public void PonFactorial(int factorial){
         //Factorial
         this.factorial=factorial;
+    }
+    public void PonIndice(int indice){
+        //indice raiz
+        this.indice=indice;
     }
     public void opera()
     {
