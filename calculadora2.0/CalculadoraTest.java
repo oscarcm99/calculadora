@@ -252,6 +252,16 @@ public class CalculadoraTest
         calculadora.ponOperacion("LOGARITMOS");
         calculadora.opera();
         assertEquals(1.0,calculadora.resultadoReal(),0.1);
+          //Caso 2 logaritmos
+        calculadora.ponNum1(1);
+        calculadora.ponOperacion("LOGARITMOS");
+        calculadora.opera();
+        assertEquals(0,calculadora.resultadoReal(),0.1);
+          //Caso 3 logaritmos
+        calculadora.ponNum1(2.3);
+        calculadora.ponOperacion("LOGARITMOS");
+        calculadora.opera();
+        assertEquals(0.361727836,calculadora.resultadoReal(),0.1);
     }
     @Test
     public void factoriales(){
@@ -267,6 +277,11 @@ public class CalculadoraTest
         assertEquals(1,calculadora.resultado());
         //Caso 3 factoriales
         calculadora.PonFactorial(Integer.MAX_VALUE);
+        calculadora.ponOperacion("FACTORIALES");
+        calculadora.opera();
+        assertEquals(0,calculadora.resultado());
+  //Caso 4 factoriales
+        calculadora.PonFactorial(-2);
         calculadora.ponOperacion("FACTORIALES");
         calculadora.opera();
         assertEquals(0,calculadora.resultado());
