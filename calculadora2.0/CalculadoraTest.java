@@ -294,12 +294,12 @@ public class CalculadoraTest
         calculadora.ponOperacion("LOGARITMOS");
         calculadora.opera();
         assertEquals(1.0,calculadora.resultadoReal(),0.1);
-          //Caso 2 logaritmos
+          //Caso 2 logaritmos metemos el 1 y nos sale un cero.
         calculadora.ponNum1(1);
         calculadora.ponOperacion("LOGARITMOS");
         calculadora.opera();
         assertEquals(0,calculadora.resultadoReal(),0.1);
-          //Caso 3 logaritmos logaritmo de un decimal
+          //Caso 3 logaritmos logaritmo de un decimal y nos sale un numero decimal que empieza por 0.
         calculadora.ponNum1(2.3);
         calculadora.ponOperacion("LOGARITMOS");
         calculadora.opera();
