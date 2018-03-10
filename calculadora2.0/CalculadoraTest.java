@@ -312,17 +312,17 @@ public class CalculadoraTest
         calculadora.ponOperacion("FACTORIALES");
         calculadora.opera();
         assertEquals(24,calculadora.resultado());
-        //Caso 2 factoriales
+        //Caso 2 factoriales da 0 
         calculadora.PonFactorial(0);
         calculadora.ponOperacion("FACTORIALES");
         calculadora.opera();
-        assertEquals(1,calculadora.resultado());
+        assertEquals(0,calculadora.resultado());
         //Caso 3 factoriales
         calculadora.PonFactorial(Integer.MAX_VALUE);
         calculadora.ponOperacion("FACTORIALES");
         calculadora.opera();
         assertEquals(0,calculadora.resultado());
-  //Caso 4 factoriales
+        //Caso 4 factoriales
         calculadora.PonFactorial(-2);
         calculadora.ponOperacion("FACTORIALES");
         calculadora.opera();

@@ -73,8 +73,8 @@ public class Calculadora
                 resultado=Math.log10(num1);
                 break;
             case FACTORIALES:
-                int a =1;  
-                while ( factorial!=0) {
+                int a = 1;  
+                while ( factorial!=1) {
                     a=a*factorial;
                     factorial--;
                 }
