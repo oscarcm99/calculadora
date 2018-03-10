@@ -268,24 +268,60 @@ public class CalculadoraTest
     }
     @Test
     public void potencias(){
-        //Caso 1 potencias
+        //Caso 1 potencias numero positivo elevado al cuadrado
         calculadora.ponNum1(2);
         calculadora.ponNum2(2);
         calculadora.ponOperacion("POTENCIAS");
         calculadora.opera();
         assertEquals(4.0,calculadora.resultadoReal(),0.1);
-        //Caso 2 
+        //Caso 2 numero positivo elevado a 0 igual a 1
         calculadora.ponNum1(2);
         calculadora.ponNum2(0);
         calculadora.ponOperacion("POTENCIAS");
         calculadora.opera();
         assertEquals(1.0,calculadora.resultadoReal(),0.1);
-     //Caso 3 potencias
+        //Caso 3 potencias 0 elevado a 2 0
         calculadora.ponNum1(0);
         calculadora.ponNum2(2);
         calculadora.ponOperacion("POTENCIAS");
         calculadora.opera();
         assertEquals(0,calculadora.resultadoReal(),0.1);
+        // Caso 4 potencias limite postivo elevado a limite positivo igual a infinito
+        calculadora.ponNum1(Double.MAX_VALUE);
+        calculadora.ponNum2(Double.MAX_VALUE);
+        calculadora.ponOperacion("POTENCIAS");
+        calculadora.opera();
+        assertEquals(Double.POSITIVE_INFINITY,calculadora.resultadoReal(),0.1);
+        //Caso 5 potencias limite negativo elevado a otro negativo igual menos infinito
+        calculadora.ponNum1(-Double.MAX_VALUE);
+        calculadora.ponNum2(-Double.MAX_VALUE);
+        calculadora.ponOperacion("POTENCIAS");
+        calculadora.opera();
+        assertEquals(0,calculadora.resultadoReal(),0.1);
+        //Caso 6 potencias limite negativo elevado a otro positvo igual a infinito
+        calculadora.ponNum1(-Double.MAX_VALUE);
+        calculadora.ponNum2(Double.MAX_VALUE);
+        calculadora.ponOperacion("POTENCIAS");
+        calculadora.opera();
+        assertEquals(Double.POSITIVE_INFINITY,calculadora.resultadoReal(),0.1);
+        //Caso 7 potencias limite positivo elevado a negativo igual a 0
+        calculadora.ponNum1(Double.MAX_VALUE);
+        calculadora.ponNum2(-Double.MAX_VALUE);
+        calculadora.ponOperacion("POTENCIAS");
+        calculadora.opera();
+        assertEquals(0,calculadora.resultadoReal(),0.1);
+        //Caso 8 potencias numero positivo elevado a exponente negativo es igual a elevado 1/3 da 0.125
+        calculadora.ponNum1(2);
+        calculadora.ponNum2(-3);
+        calculadora.ponOperacion("POTENCIAS");
+        calculadora.opera();
+        assertEquals(0.125,calculadora.resultadoReal(),0.1);
+        //Caso 9 potencias numero negativo elevado a exp negativo igual a -0.125
+        calculadora.ponNum1(-2);
+        calculadora.ponNum2(-3);
+        calculadora.ponOperacion("POTENCIAS");
+        calculadora.opera();
+        assertEquals(-0.125,calculadora.resultadoReal(),0.1);
     }
     @Test
     public void logaritmos(){
@@ -323,7 +359,7 @@ public class CalculadoraTest
     }
     @Test
     public void factoriales(){
-        //Caso 1 factoriales
+        //Caso 1 factoriales da 24 porque 4 * 3 * 2 * 1
         calculadora.PonFactorial(4);
         calculadora.ponOperacion("FACTORIALES");
         calculadora.opera();
@@ -333,13 +369,18 @@ public class CalculadoraTest
         calculadora.ponOperacion("FACTORIALES");
         calculadora.opera();
         assertEquals(0,calculadora.resultado());
-        //Caso 3 factoriales
+        //Caso 3 factoriales maximo valor espera 0
         calculadora.PonFactorial(Integer.MAX_VALUE);
         calculadora.ponOperacion("FACTORIALES");
         calculadora.opera();
         assertEquals(0,calculadora.resultado());
-        //Caso 4 factoriales
+        //Caso 4 factoriales espera 0 porque no acepta negativos
         calculadora.PonFactorial(-2);
+        calculadora.ponOperacion("FACTORIALES");
+        calculadora.opera();
+        assertEquals(0,calculadora.resultado());
+        //Caso 5 factoriales
+        calculadora.PonFactorial(-Integer.MAX_VALUE);
         calculadora.ponOperacion("FACTORIALES");
         calculadora.opera();
         assertEquals(0,calculadora.resultado());
