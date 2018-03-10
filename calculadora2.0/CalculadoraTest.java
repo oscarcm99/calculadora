@@ -274,7 +274,7 @@ public class CalculadoraTest
         calculadora.ponOperacion("POTENCIAS");
         calculadora.opera();
         assertEquals(4.0,calculadora.resultadoReal(),0.1);
-        //Caso 2 potencias
+        //Caso 2 
         calculadora.ponNum1(2);
         calculadora.ponNum2(0);
         calculadora.ponOperacion("POTENCIAS");
@@ -289,7 +289,7 @@ public class CalculadoraTest
     }
     @Test
     public void logaritmos(){
-        //Caso 1 logaritmos
+        //Caso 1 logaritmos logartimo de 10 da 1 ya que 10 entre 10 1.
         calculadora.ponNum1(10);
         calculadora.ponOperacion("LOGARITMOS");
         calculadora.opera();
@@ -299,11 +299,27 @@ public class CalculadoraTest
         calculadora.ponOperacion("LOGARITMOS");
         calculadora.opera();
         assertEquals(0,calculadora.resultadoReal(),0.1);
-          //Caso 3 logaritmos
+          //Caso 3 logaritmos logaritmo de un decimal
         calculadora.ponNum1(2.3);
         calculadora.ponOperacion("LOGARITMOS");
         calculadora.opera();
         assertEquals(0.361727836,calculadora.resultadoReal(),0.1);
+         //Caso 4 logaritmos da ese resulatdo ya que es un limite positivo.
+        calculadora.ponNum1(Double.MAX_VALUE);
+        calculadora.ponOperacion("LOGARITMOS");
+        calculadora.opera();
+        assertEquals(308.25471555991675,calculadora.resultadoReal(),0.1);
+          //Caso 5 logaritmos los logaritmos negativos no existen por lo que hay poner double NaN.
+        calculadora.ponNum1(-Double.MAX_VALUE);
+        calculadora.ponOperacion("LOGARITMOS");
+        calculadora.opera();
+        assertEquals(Double.NaN,calculadora.resultadoReal(),0.1);
+          //Caso 6 logaritmos menos infinito ya que es una indterminacion.
+        calculadora.ponNum1(0);
+        calculadora.ponOperacion("LOGARITMOS");
+        calculadora.opera();
+        assertEquals(Double.NEGATIVE_INFINITY,calculadora.resultadoReal(),0.1);
+
     }
     @Test
     public void factoriales(){
