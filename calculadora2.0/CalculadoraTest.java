@@ -243,7 +243,7 @@ public class CalculadoraTest
     }
     @Test
     public void raices(){
-        //Caso 1 raices
+        //Caso 1 raices 
         calculadora.ponNum1(9);
         calculadora.ponNum2(2);
         calculadora.ponOperacion("RAICES");
@@ -256,14 +256,33 @@ public class CalculadoraTest
         calculadora.ponOperacion("RAICES");
         calculadora.opera();
         assertEquals(Double.NaN,calculadora.resultadoReal(),0.1);
-        /*
+        
         //caso3 raices
         calculadora.ponNum1(5);
         calculadora.PonIndice(3);
         calculadora.ponOperacion("RAICES");
         calculadora.opera();
         assertEquals(1.0,calculadora.resultadoReal(),0.1);
-        */
+        
+        //caso 4 raices
+        calculadora.ponNum1(0);
+        calculadora.ponNum2(2);
+        calculadora.ponOperacion("RAICES");
+        calculadora.opera();
+        assertEquals(0,calculadora.resultadoReal(),0.1);
+      //caso 5 raices
+        calculadora.ponNum1(Double.MAX_VALUE);
+        calculadora.ponNum2(2);
+        calculadora.ponOperacion("RAICES");
+        calculadora.opera();
+        assertEquals(1.3407807929942596E154,calculadora.resultadoReal(),0.1);
+ //caso6 raices
+        calculadora.ponNum1(-Double.MAX_VALUE);
+        calculadora.ponNum2(2);
+        calculadora.ponOperacion("RAICES");
+        calculadora.opera();
+        assertEquals(Double.NaN,calculadora.resultadoReal(),0.1);
+
         
     }
     @Test
