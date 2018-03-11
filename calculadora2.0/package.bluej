@@ -48,5 +48,5 @@ target3.name=CalculadoraTest
 target3.showInterface=false
 target3.type=UnitTestTargetJunit4
 target3.width=150
-target3.x=10
+target3.x=20
 target3.y=130

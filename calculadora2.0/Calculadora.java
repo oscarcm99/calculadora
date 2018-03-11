@@ -8,11 +8,11 @@
 public class Calculadora
 {
     // instance variables - replace the example below with your own
-    private double num1;
-    private double num2;
-    private int factorial;//Para los factoriales
+    private double num1;//Numeros reales
+    private double num2;//Numeros reales
+    private int factorial;//Para los factoriales que deben de ser numero entero
     private double resultado;//Resultado para la raiz
-    private int rdo;//Resultado factoriales
+    private int rdo;//Resultado factoriales 
     private Operacion op; //Asociamos el enum creado en otra clase
     private int indice;
     /**
@@ -20,59 +20,56 @@ public class Calculadora
      */
     public Calculadora()
     {
-        // initialise instance variables
+        // inicilizan variables
         num1 = 0;
         num2 = 0;
         factorial = 0;
-        indice = 0;
         op=op.SUMA;
 
     }
 
     public void ponNum1(double n1)
     {
-        // put your code here
+        // para llamada del num1
         this.num1=n1;
     }
 
     public void ponNum2(double n2)
     {
-        // put your code here
+        // para llamada del num2
         this.num2=n2;
     }
     public void PonFactorial(int factorial){
-        //Factorial
+        //Factorial que debe ser entero
         this.factorial=factorial;
-    }
-    public void PonIndice(int indice){
-        //indice raiz
-        this.indice=indice;
     }
     public void opera()
     {
         switch(op){
-            case SUMA:
+            case SUMA://Operaciones suma
                 resultado=num1+num2;
                 break;
-            case RESTA:
+            case RESTA://Operaciones resta
                 resultado=num1-num2;
                 break;
-            case MULTIPLICA:
+            case MULTIPLICA://Operaciones multiplicaciones
                 resultado=num1*num2;
                 break;
-            case DIVIDE:
+            case DIVIDE://Operaciones division
                 resultado= num1/num2;
                 break;
-            case RAICES:
+            case RAICES://Operaciones raices no se puede meter base negativa segun esta definida en 
+            //la funcion math.pow
                 resultado = (double)Math.pow(num1,(double)1/num2); /*Asocia el resultado de la raiz al meter los numeros, un float que es el resultado que devuelve*/
                 break;
-            case POTENCIAS:
+            case POTENCIAS://Operaciones de potencias
                 resultado = (double)Math.pow(num1,num2);
                 break;
-            case LOGARITMOS:
+            case LOGARITMOS://Operaciones logaritmos en base 10
                 resultado=Math.log10(num1);
                 break;
-            case FACTORIALES:
+            case FACTORIALES://Operaciones con factoriales que segun un entero diistinto a uno se 
+            //multiplica el numero por el numero -1 asi hasta llegar a 1
                 int a = 1;  
                 while ( factorial!=1) {
                     a=a*factorial;
