@@ -262,7 +262,7 @@ public class CalculadoraTest
         calculadora.PonIndice(3);
         calculadora.ponOperacion("RAICES");
         calculadora.opera();
-        assertEquals(1.0,calculadora.resultadoReal(),0.1);
+        assertEquals(1.37,calculadora.resultadoReal(),0.1);
         
         //caso 4 raices
         calculadora.ponNum1(0);
@@ -270,13 +270,15 @@ public class CalculadoraTest
         calculadora.ponOperacion("RAICES");
         calculadora.opera();
         assertEquals(0,calculadora.resultadoReal(),0.1);
-      //caso 5 raices
+        
+        //caso 5 raices
         calculadora.ponNum1(Double.MAX_VALUE);
         calculadora.ponNum2(2);
         calculadora.ponOperacion("RAICES");
         calculadora.opera();
         assertEquals(1.3407807929942596E154,calculadora.resultadoReal(),0.1);
- //caso6 raices
+        
+        //caso6 raices
         calculadora.ponNum1(-Double.MAX_VALUE);
         calculadora.ponNum2(2);
         calculadora.ponOperacion("RAICES");

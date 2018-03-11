@@ -64,7 +64,7 @@ public class Calculadora
                 resultado= num1/num2;
                 break;
             case RAICES:
-                resultado = (double)Math.pow(num1,1/num2); /*Asocia el resultado de la raiz al meter los numeros, un float que es el resultado que devuelve*/
+                resultado = (double)Math.pow(num1,(double)1/num2); /*Asocia el resultado de la raiz al meter los numeros, un float que es el resultado que devuelve*/
                 break;
             case POTENCIAS:
                 resultado = (double)Math.pow(num1,num2);
