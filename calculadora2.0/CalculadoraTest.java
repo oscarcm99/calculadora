@@ -243,54 +243,54 @@ public class CalculadoraTest
     }
     @Test
     public void raices(){
-        //Caso 1 raices 
+        //Caso 1 raices la raiz cuadrada de 9 es 3.
         calculadora.ponNum1(9);
         calculadora.ponNum2(2);
         calculadora.ponOperacion("RAICES");
         calculadora.opera();
         assertEquals(3.0,calculadora.resultadoReal(),0.1);
         
-        //Caso 2 raices
+        //Caso 2 raices espera un nan porque la funcion no deja raices negativas.
         calculadora.ponNum1(-32);
         calculadora.ponNum2(5);
         calculadora.ponOperacion("RAICES");
         calculadora.opera();
         assertEquals(Double.NaN,calculadora.resultadoReal(),0.1);
         
-        //caso3 raices
+        //caso3 raices la raiz cubica de 5 es 1.709.
         calculadora.ponNum1(5);
         calculadora.ponNum2(3);
         calculadora.ponOperacion("RAICES");
         calculadora.opera();
         assertEquals(1.709,calculadora.resultadoReal(),0.1);
         
-        //caso 4 raices
+        //caso 4 raices la raiz cuadrada de 0 es 0.
         calculadora.ponNum1(0);
         calculadora.ponNum2(2);
         calculadora.ponOperacion("RAICES");
         calculadora.opera();
         assertEquals(0,calculadora.resultadoReal(),0.1);
         
-        //caso 5 raices
+        //caso 5 raices espera un 1.
         calculadora.ponNum1(Double.MAX_VALUE);
         calculadora.ponNum2(Double.MAX_VALUE);
         calculadora.ponOperacion("RAICES");
         calculadora.opera();
         assertEquals(1.0,calculadora.resultadoReal(),0.1);
         
-        //caso6 raices
+        //caso6 raices espera un nan porque la funcion no deja raices negativas.
         calculadora.ponNum1(-Double.MAX_VALUE);
         calculadora.ponNum2(-Double.MAX_VALUE);
         calculadora.ponOperacion("RAICES");
         calculadora.opera();
         assertEquals(Double.NaN,calculadora.resultadoReal(),0.1);
-        //caso7 raices
+        //caso7 raices infinito porque 2 elevado a 1 entre 0(es infinito).
         calculadora.ponNum1(2);
         calculadora.ponNum2(0);
         calculadora.ponOperacion("RAICES");
         calculadora.opera();
         assertEquals(Double.POSITIVE_INFINITY,calculadora.resultadoReal(),0.1);
-         //caso8 raices
+         //caso8 raices espara un 1.
         calculadora.ponNum1(Double.MAX_VALUE);
         calculadora.ponNum2(-Double.MAX_VALUE);
         calculadora.ponOperacion("RAICES");
