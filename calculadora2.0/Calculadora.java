@@ -60,7 +60,7 @@ public class Calculadora
                 break;
             case RAICES://Operaciones raices no se puede meter base negativa segun esta definida en 
             //la funcion math.pow
-                resultado = (double)Math.pow(num1,(double)1/num2); /*Asocia el resultado de la raiz al meter los numeros, un float que es el resultado que devuelve*/
+                resultado = Math.pow((double)num1,1/(double)num2); /*Asocia el resultado de la raiz al meter los numeros, un float que es el resultado que devuelve*/
                 break;
             case POTENCIAS://Operaciones de potencias
                 resultado = (double)Math.pow(num1,num2);
